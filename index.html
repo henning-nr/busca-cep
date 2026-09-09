@@ -1,30 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Busca CEP</title>
 </head>
+
 <body>
     <h1>Busca CEP</h1>
     <label for="cep">CEP</label>
     <input id="cep" type="number">
-    <button onclick="buscar()">Buscar</button>
-    <p>AQUI VAI VIR O CEP</p>
+    <button id="btn-cep">Buscar</button><br>
+    <input type="text" placeholder="Rua" id="logradouro"><br>
+    <input type="text" placeholder="Bairro" id="bairro"><br>
+    <input type="text" placeholder="Cidade" id="localidade"><br>
+    <input type="text" placeholder="Estado" id="estado"><br>
+    <input type="text" placeholder="Região" id="regiao"><br>
+    <input type="text" placeholder="DDD" id="ddd">
 </body>
 
-<script>
-function buscar(){
-    let cepDigitado = document.getElementById("cep").value
-    console.log(cepDigitado)
-    // let urlCep = "https://viacep.com.br/ws/"+cepDigitado+"/json/"
-    let urlCep = `https://viacep.com.br/ws/${cepDigitado}/json/`
+<script src="script.js"></script>
 
-    fetch(urlCep)
-    .then((dados)=>{return dados.json()})
-    .then((cep)=>{
-        document.querySelector("p").innerText = JSON.stringify(cep)
-    })
-}
-</script>
 </html>
