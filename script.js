@@ -12,11 +12,12 @@ function buscar(){
     fetch(urlCep)
     .then((dados)=>{return dados.json()})
     .then((cep)=>{
-        document.getElementById("logradouro").value = cep.logradouro
-        document.getElementById("localidade").value = cep.localidade
-        document.getElementById("bairro").value = cep.bairro
-        document.getElementById("estado").value = cep.estado
-        document.getElementById("regiao").value = cep.regiao
-        document.getElementById("ddd").value = cep.ddd
+        document.getElementById("cep-lista").innerHTML = `
+        <li class="collection-item">CEP: ${cep.cep}</li>
+        <li class="collection-item">Logradouro: ${cep.logradouro}</li>
+        <li class="collection-item">Bairro: ${cep.bairro}</li>
+        <li class="collection-item">Cidade: ${cep.localidade}</li>
+        <li class="collection-item">Estado: ${cep.uf}</li>
+        `
     })
 }
